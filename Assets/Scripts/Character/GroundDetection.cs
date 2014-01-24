@@ -3,16 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 public class GroundDetection : MonoBehaviour {
 	
-	public List<Collider> collidedThings=new List<Collider>();
+	public List<Collider2D> collidedThings=new List<Collider2D>();
 	
 //	public bool isGrouded=false;
 	public bool IsGrouded(){
-		List<Collider> collidersToRemove=new List<Collider>();
-		foreach(Collider c in collidedThings){
+		List<Collider2D> collidersToRemove=new List<Collider2D>();
+		foreach(Collider2D c in collidedThings){
 			if(c==null)
 				collidersToRemove.Add (c);
 		}
-		foreach(Collider c in collidersToRemove){
+		foreach(Collider2D c in collidersToRemove){
 			collidedThings.Remove(c);
 		}
 		if(collidedThings.Count>0){
@@ -22,7 +22,8 @@ public class GroundDetection : MonoBehaviour {
 		
 	}
 	
-	void OnTriggerEnter(Collider other){
+	void OnTriggerEnter2D(Collider2D other){
+		Debug.Log("!!!");
 		if(other.tag!="Trigger"){
 			collidedThings.Add(other);
 		}
@@ -30,7 +31,7 @@ public class GroundDetection : MonoBehaviour {
 	
 
 	
-	void OnTriggerExit(Collider other){
+	void OnTriggerExit2D(Collider2D other){
 		if(other.tag!="Trigger"){
 			collidedThings.Remove(other);			
 		}
