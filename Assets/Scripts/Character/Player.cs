@@ -3,13 +3,19 @@ using System.Collections;
 
 public class Player : Character {
 
-	 
+	public WallDetection wallDetectLeft, wallDetectRight;
+	public WorldType worldType;
+
 	// Update is called once per frame
-	public void FixedUpdate () {
+	public void Update () {
 		Move(Input.GetAxis("Horizontal"));
+
+		if(worldType==WorldManager.Instance.GetCurrentWorld() && (wallDetectLeft.IsGrouded()||wallDetectRight.IsGrouded()))
+			MoveOnWall(Input.GetAxis("Vertical"),wallDetectLeft.IsGrouded(), wallDetectRight.IsGrouded());
+
 		Jump(Input.GetButtonDown("Jump"));
 
-		base.FixedUpdate();
+		//base.FixedUpdate();
 	}
 	void OnDestroy(){
 		Application.LoadLevel(Application.loadedLevel);
