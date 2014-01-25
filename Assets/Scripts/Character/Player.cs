@@ -5,7 +5,7 @@ public class Player : Character {
 
 	public WallDetection wallDetectLeft, wallDetectRight;
 	public WorldType worldType;
-
+	public bool isGrapping;
 	// Update is called once per frame
 	public void Update () {
 		Move(Input.GetAxis("Horizontal"));
