@@ -9,6 +9,7 @@ public class GroundDetection : MonoBehaviour {
 	public LayerMask layerMask;
 	public bool grounded;
 	public bool IsGrouded(){
+		transform.parent.parent=null;
 		grounded = Physics2D.OverlapCircle(transform.position, radius, layerMask);
 //		grounded = Physics2D.OverlapArea(new Vector2(transform.position.x-width,transform.position.y+height ),
 //		                                 new Vector2(transform.position.x+width,transform.position.y-height ), layerMask	);
@@ -25,6 +26,30 @@ public class GroundDetection : MonoBehaviour {
 
 
 	}
+
+	void OnTriggerEnter2D(Collider2D other){
+//		FixCrade(other.GetComponent<MovingDecor>());
+		MovingDecor movingDecor=other.GetComponent<MovingDecor>();
+		if(movingDecor)
+			transform.parent.parent=other.transform;
+	}
+//	void OnTriggerStay2D(Collider2D other){
+//		FixCrade(other.GetComponent<MovingDecor>());
+//	}
+	void OnTriggerExit2D(Collider2D other){
+//		FixCrade(other.GetComponent<MovingDecor>());
+		MovingDecor movingDecor=other.GetComponent<MovingDecor>();
+		if(movingDecor)
+			transform.parent.parent=null;
+	}
+//
+//	void FixCrade(MovingDecor movingDecor){
+//		if(movingDecor){
+////			transform.parent.Translate(movingDecor.delta);
+//			transform.parent.Translate(movingDecor.transform.position-movingDecor.lastPosition);
+//		}
+//	}
+
 
 	/*
 

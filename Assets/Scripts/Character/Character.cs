@@ -6,6 +6,7 @@ public class Character : MonoBehaviour {
 
 	public float moveSpeed=10;
 	public float jumpSpeed=10;
+//	public float fallSpeedMin=-10;
 	public float fallSpeedMax=-10;
 	public float fallAcceleration=2;
 	public Vector2 bumpForce;
@@ -13,7 +14,8 @@ public class Character : MonoBehaviour {
 	public GameObject child;
 	public float pv=1;
 	public float bumpForceWhenHit=25;	float yVelocity;
-	float horizontal;
+
+	float horizontal, vertical;
 	
 	public Animator animator;
 	GroundDetection groundDetection;
@@ -58,6 +60,11 @@ public class Character : MonoBehaviour {
 
 	public void Move(float direction){
 		horizontal=direction*moveSpeed;
+	}
+
+	public void MoveOnWall(float direction, bool wallLeft, bool wallRight){
+		yVelocity=direction*moveSpeed;
+
 	}
 
 	public void Jump(bool jump){
