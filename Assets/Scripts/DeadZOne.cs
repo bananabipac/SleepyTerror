@@ -16,7 +16,11 @@ public class DeadZOne : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		other.transform.position = SpawnPoint;
+		if (other.tag == "Player")
+		{
+			other.transform.position = SpawnPoint;
+		}
+		
 	}
 
 	public void OnDrawGizmosSelected()

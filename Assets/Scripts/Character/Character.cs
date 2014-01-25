@@ -16,9 +16,12 @@ public class Character : MonoBehaviour {
 	public float bumpForceWhenHit=25;	float yVelocity;
 
 	float horizontal, vertical;
-	
+	bool wallLeft,  wallRight;
+
 	public Animator animator;
+
 	GroundDetection groundDetection;
+
 	// Use this for initialization
 	public void Start () {
 		InitBase(); 
@@ -47,9 +50,21 @@ public class Character : MonoBehaviour {
 		
 		Vector2 move = new Vector3(horizontal,yVelocity);
 		rigidbody2D.velocity=move+bumpForce;
-		
-		animator.SetFloat("Horizontal", horizontal);
-		animator.SetFloat("Vertical", yVelocity);
+
+		if(wallLeft){
+			animator.SetFloat("Horizontal", -yVelocity);
+			animator.transform.rotation=Quaternion.Euler(0,0,270);
+		}else if(wallRight){
+			animator.SetFloat("Horizontal", yVelocity);
+			animator.transform.rotation=Quaternion.Euler(0,0,90);
+		}else{
+			animator.SetFloat("Horizontal", horizontal);
+			animator.SetFloat("Vertical", yVelocity);
+			animator.transform.rotation=Quaternion.Euler(0,0,0);
+		}
+		wallLeft=false;
+		wallRight=false;
+
 		//		Debug.Log(horizontal+" "+yVelocity);
 		//		Debug.Log(rigidbody2D.velocity);
 		
@@ -64,7 +79,8 @@ public class Character : MonoBehaviour {
 
 	public void MoveOnWall(float direction, bool wallLeft, bool wallRight){
 		yVelocity=direction*moveSpeed;
-
+		this.wallLeft=wallLeft;
+		this.wallRight=wallRight;
 	}
 
 	public void Jump(bool jump){

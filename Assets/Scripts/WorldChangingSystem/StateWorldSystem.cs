@@ -118,6 +118,18 @@ public class StateWorldSystem : MonoBehaviour {
 				case ObjectType.Background :
 					go.SetActive(true);
 				break;
+				case ObjectType.MovingPlatform:
+					go.SetActive(true);
+					if(ListStates.ContainsKey(currentWorld))
+					{
+						foreach (Transform child in ListStates[currentWorld].transform)
+						{
+							child.parent = null;					
+						}
+					}					
+					
+				break;
+
 			}
 		}
 	}
@@ -142,6 +154,9 @@ public class StateWorldSystem : MonoBehaviour {
 					
 				break;
 				case ObjectType.Background:
+					go.SetActive(false);
+				break;
+				case ObjectType.MovingPlatform:
 					go.SetActive(false);
 				break;
 			}

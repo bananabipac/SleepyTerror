@@ -2,7 +2,7 @@
 using System.Collections;
 
 public enum WorldType { Cute, Time, Terror };
-public enum ObjectType { Player, Enemy, Platform, Background};
+public enum ObjectType { Player, Enemy, Platform, Background, MovingPlatform};
 
 public class WorldManager : MonoBehaviour {
 
