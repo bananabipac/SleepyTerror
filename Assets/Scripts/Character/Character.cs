@@ -25,6 +25,10 @@ public class Character : MonoBehaviour {
 		groundDetection=GetComponentInChildren<GroundDetection>();
 	}
 
+	public void Update(){
+		UpdateMove();
+	}
+
 	public void UpdateMove () {
 		
 		Vector2 move = new Vector3(horizontal,yVelocity);
