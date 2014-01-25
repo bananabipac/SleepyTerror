@@ -51,24 +51,26 @@ public class StateWorldSystem : MonoBehaviour {
 		if (ListStates.ContainsKey(world))
 		{
 			GameObject go = ListStates[world];
-			GameObject goOld = ListStates[currentWorld];
+
 			switch (Type)
 			{
 				case ObjectType.Enemy :
 
 					MonsterBase mbNew = go.GetComponent<MonsterBase>();
 					MonsterBase mb = this.GetComponent<MonsterBase>();
-					mb.PositionStart = this.transform.position;
+
+					go.SetActive(true);
+					mb.animator = go.GetComponent<Animator>();
+
 					mb.patrolBorderLeft = mbNew.patrolBorderLeft;
 					mb.patrolBorderRight = mbNew.patrolBorderRight;
-					mb.IA = mbNew.IA;
 
 					BoxCollider2D bc = this.GetComponent<BoxCollider2D>();
 					BoxCollider2D bcNew = this.GetComponent<BoxCollider2D>();
 					bc.center = bc.center;
 					bc.size = bcNew.size;
 
-					Rigidbody2D rb = rigidbody2D;
+					/*Rigidbody2D rb = rigidbody2D;
 					Rigidbody2D rbNew = this.GetComponent<Rigidbody2D>();
 					rb.mass = rbNew.mass;
 					rb.drag = rbNew.drag;
@@ -78,14 +80,31 @@ public class StateWorldSystem : MonoBehaviour {
 					rb.isKinematic = rbNew.isKinematic;
 					rb.interpolation = rbNew.interpolation;
 					rb.sleepMode = rbNew.sleepMode;
-					rb.collisionDetectionMode = rbNew.collisionDetectionMode;
+					rb.collisionDetectionMode = rbNew.collisionDetectionMode;*/
+
+					mb.child = go;
 
 					go.SetActive(true);
 
 				break;
 				case ObjectType.Player :
 					go.SetActive(true);
-					this.GetComponent<Character>().animator = go.GetComponent<Animator>();
+					this.GetComponent<Player>().animator = go.GetComponent<Animator>();
+
+
+					Player pNew = go.GetComponent<Player>();
+					Player p = this.GetComponent<Player>();
+
+					p.moveSpeed = pNew.moveSpeed;
+					p.jumpSpeed = pNew.jumpSpeed;
+					p.fallSpeedMax = pNew.fallSpeedMax;
+					p.fallAcceleration = pNew.fallAcceleration;
+					p.bumpForce = pNew.bumpForce;
+					p.bumpForceWhenHit = pNew.bumpForceWhenHit;
+
+				break;
+				case ObjectType.Platform :
+					go.SetActive(true);
 				break;
 			}
 		}
@@ -102,7 +121,10 @@ public class StateWorldSystem : MonoBehaviour {
 					go.SetActive(false);
 				break;
 				case ObjectType.Player:
-				go.SetActive(false);
+					go.SetActive(false);
+				break;
+				case ObjectType.Platform:
+					go.SetActive(false);
 				break;
 			}
 		}
@@ -113,33 +135,16 @@ public class StateWorldSystem : MonoBehaviour {
 	{
 		WorldType old = currentWorld;
 
-		
-		currentWorld = worldType;
-
-		if (ListStates.ContainsKey(old))
+	
+		if (ListStates.ContainsKey(worldType))
 		{
 			ActivateWorld(worldType);
 		}
 
-		DesactivateWorld(worldType);
+		DesactivateWorld(old);
 
-		/*if (ListStates.ContainsKey(worldType))
-		{
-			GameObject obj = ListStates[worldType];
-
-			obj.SetActive(true);
-
-			switch (Type)
-			{
-				case ObjectType.Player :
-					this.GetComponent<Character>().animator = obj.GetComponent<Animator>();
-				break;
-			}
-
-			
-		
-		}*/
-		
+		currentWorld = worldType;
+	
 
 	}
 }

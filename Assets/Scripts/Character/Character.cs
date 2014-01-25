@@ -9,7 +9,8 @@ public class Character : MonoBehaviour {
 	public float fallSpeedMax=-10;
 	public float fallAcceleration=2;
 	public Vector2 bumpForce;
-	private bool isInCollider;
+	public bool isInCollider;
+	public GameObject child;
 	
 	float yVelocity;
 	float horizontal;
@@ -26,19 +27,19 @@ public class Character : MonoBehaviour {
 		groundDetection=GetComponentInChildren<GroundDetection>();
 	}
 
-	public void Update(){
+	public void FixedUpdate(){
 		UpdateMove();
 	}
 
-	public void OnTriggerStay2D(Collider2D other) 
-	{
+	/*public void OnCollisionEnter2D(Collision2D coll) 
+	{		
 		isInCollider = true;
 	}
 
-	public void OnTriggerExit2D(Collider2D other)
+	public void OnCollisionExit2D(Collision2D coll)
 	{
 		isInCollider = false;
-	}
+	}*/
 	
 	public void UpdateMove () {
 		

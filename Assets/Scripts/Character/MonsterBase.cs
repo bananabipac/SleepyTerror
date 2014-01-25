@@ -19,10 +19,14 @@ public class MonsterBase : Character {
 	}
 
 	public Vector3 PositionStart { get{return posStart;} set{ posStart = value;}}
-
-	public void Update () {
+	public void FixedUpdate () {
 		IA();
-		base.Update();
+		base.FixedUpdate();
+
+		if (isInCollider)
+		{
+			child.SetActive(false);
+		}
 	}
 
 	public void Patrol(){
