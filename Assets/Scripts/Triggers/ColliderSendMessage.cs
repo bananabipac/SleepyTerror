@@ -7,7 +7,7 @@ public class ColliderSendMessage : MonoBehaviour {
 
 
 	void OnCollisionEnter2D(Collision2D coll) {
-		Debug.Log(coll.gameObject);
+//		Debug.Log(coll.gameObject);
 		coll.gameObject.SendMessage(message, gameObject,SendMessageOptions.DontRequireReceiver);
 	}
 }

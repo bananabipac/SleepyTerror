@@ -5,11 +5,11 @@ public class Player : Character {
 	public float pv=1;
 	public float bumpForceWhenHit=25; 
 	// Update is called once per frame
-	public void Update () {
+	public void FixedUpdate () {
 		Move(Input.GetAxis("Horizontal"));
-		Jump(Input.GetButtonDown("Jump"));
+		Jump(Input.GetButton("Jump"));
 
-		base.Update();
+		base.FixedUpdate();
 	}
 
 	public void TakeDamage(GameObject hitter=null){

@@ -17,9 +17,9 @@ public class MonsterAggroDistance : MonsterBase {
 		player = GameObject.FindObjectOfType<Player>();
 	}
 
-	public void Update () {
+	public void FixedUpdate () {
 		Aggro();
-		base.Update();
+		base.FixedUpdate();
 	}
 
 	void Aggro(){

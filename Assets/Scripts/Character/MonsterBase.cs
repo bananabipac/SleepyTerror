@@ -18,9 +18,9 @@ public class MonsterBase : Character {
 		IA=Patrol;
 	}
 
-	public void Update () {
+	public void FixedUpdate () {
 		IA();
-		base.Update();
+		base.FixedUpdate();
 	}
 
 	public void Patrol(){

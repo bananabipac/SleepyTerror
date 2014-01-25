@@ -25,7 +25,7 @@ public class Character : MonoBehaviour {
 		groundDetection=GetComponentInChildren<GroundDetection>();
 	}
 
-	public void Update(){
+	public void FixedUpdate(){
 		UpdateMove();
 	}
 
