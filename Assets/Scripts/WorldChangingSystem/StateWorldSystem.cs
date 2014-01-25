@@ -48,85 +48,99 @@ public class StateWorldSystem : MonoBehaviour {
 
 	public void ActivateWorld(WorldType world)
 	{
+		GameObject go = null;
 		if (ListStates.ContainsKey(world))
 		{
-			GameObject go = ListStates[world];
+			go = ListStates[world];
+		}
 
 			switch (Type)
 			{
 				case ObjectType.Enemy :
 
-					MonsterBase mbNew = go.GetComponent<MonsterBase>();
-					MonsterBase mb = this.GetComponent<MonsterBase>();
-
-					go.SetActive(true);
-					mb.animator = go.GetComponent<Animator>();
-
-					if (mbNew != null)
+					if(go != null)
 					{
-						mb.patrolBorderLeft = mbNew.patrolBorderLeft;
-						mb.patrolBorderRight = mbNew.patrolBorderRight;
+						MonsterBase mbNew = go.GetComponent<MonsterBase>();
+						MonsterBase mb = this.GetComponent<MonsterBase>();
+
+						go.SetActive(true);
+						mb.animator = go.GetComponent<Animator>();
+
+						if (mbNew != null)
+						{
+							mb.patrolBorderLeft = mbNew.patrolBorderLeft;
+							mb.patrolBorderRight = mbNew.patrolBorderRight;
+						}
+
+						BoxCollider2D bc = this.GetComponent<BoxCollider2D>();
+						BoxCollider2D bcNew = this.GetComponent<BoxCollider2D>();
+						bc.center = bc.center;
+						bc.size = bcNew.size;
+
+						/*Rigidbody2D rb = rigidbody2D;
+						Rigidbody2D rbNew = this.GetComponent<Rigidbody2D>();
+						rb.mass = rbNew.mass;
+						rb.drag = rbNew.drag;
+						rb.angularDrag = rbNew.angularDrag;
+						rb.angularVelocity = rbNew.angularVelocity;
+						rb.gravityScale = rbNew.gravityScale;
+						rb.isKinematic = rbNew.isKinematic;
+						rb.interpolation = rbNew.interpolation;
+						rb.sleepMode = rbNew.sleepMode;
+						rb.collisionDetectionMode = rbNew.collisionDetectionMode;*/
+
+						mb.child = go;
+
+						go.SetActive(true);
 					}
-
-					BoxCollider2D bc = this.GetComponent<BoxCollider2D>();
-					BoxCollider2D bcNew = this.GetComponent<BoxCollider2D>();
-					bc.center = bc.center;
-					bc.size = bcNew.size;
-
-					/*Rigidbody2D rb = rigidbody2D;
-					Rigidbody2D rbNew = this.GetComponent<Rigidbody2D>();
-					rb.mass = rbNew.mass;
-					rb.drag = rbNew.drag;
-					rb.angularDrag = rbNew.angularDrag;
-					rb.angularVelocity = rbNew.angularVelocity;
-					rb.gravityScale = rbNew.gravityScale;
-					rb.isKinematic = rbNew.isKinematic;
-					rb.interpolation = rbNew.interpolation;
-					rb.sleepMode = rbNew.sleepMode;
-					rb.collisionDetectionMode = rbNew.collisionDetectionMode;*/
-
-					mb.child = go;
-
-					go.SetActive(true);
 
 				break;
 				case ObjectType.Player :
-					go.SetActive(true);
-					this.GetComponent<Player>().animator = go.GetComponent<Animator>();
-
-
-					Player pNew = go.GetComponent<Player>();
-					Player p = this.GetComponent<Player>();
-
-					if (pNew != null)
+					if(go != null)
 					{
-						p.moveSpeed = pNew.moveSpeed;
-						p.jumpSpeed = pNew.jumpSpeed;
-						p.fallSpeedMax = pNew.fallSpeedMax;
-						p.fallAcceleration = pNew.fallAcceleration;
-						p.bumpForce = pNew.bumpForce;
-						p.bumpForceWhenHit = pNew.bumpForceWhenHit;
+						go.SetActive(true);
+						this.GetComponent<Player>().animator = go.GetComponent<Animator>();
+
+
+						Player pNew = go.GetComponent<Player>();
+						Player p = this.GetComponent<Player>();
+
+						if (pNew != null)
+						{
+							p.moveSpeed = pNew.moveSpeed;
+							p.jumpSpeed = pNew.jumpSpeed;
+							p.fallSpeedMax = pNew.fallSpeedMax;
+							p.fallAcceleration = pNew.fallAcceleration;
+							p.bumpForce = pNew.bumpForce;
+							p.bumpForceWhenHit = pNew.bumpForceWhenHit;
+						}
 					}
 
 				break;
 				case ObjectType.Platform :
-					go.GetComponent<SpriteRenderer>().enabled = true;
-					//go.GetComponent<BoxCollider2D>().tag = "BackGround";
-					go.GetComponent<BoxCollider2D>().enabled = true;
+					if( go != null){
+						go.GetComponent<SpriteRenderer>().enabled = true;
+						//go.GetComponent<BoxCollider2D>().tag = "BackGround";
+						go.GetComponent<BoxCollider2D>().enabled = true;
+					}
 					
 				break;
 				case ObjectType.Background :
-					go.SetActive(true);
+					if( go != null)
+					{
+						go.SetActive(true);
+					}
 				break;
 				case ObjectType.MovingPlatform:
-					go.SetActive(true);
-				Debug.Log(currentWorld);
+					if(go != null)
+					{
+						go.SetActive(true);
+					}
+					
 					if(ListStates.ContainsKey(currentWorld))
 					{
-
 						foreach (Transform child in ListStates[currentWorld].transform)
 						{
-
 							child.parent = null;					
 						}
 					}					
@@ -134,7 +148,7 @@ public class StateWorldSystem : MonoBehaviour {
 				break;
 
 			}
-		}
+		
 	}
 
 	public void DesactivateWorld(WorldType world)
@@ -172,10 +186,9 @@ public class StateWorldSystem : MonoBehaviour {
 		WorldType old = currentWorld;
 
 	
-		if (ListStates.ContainsKey(worldType))
-		{
-			ActivateWorld(worldType);
-		}
+		
+		ActivateWorld(worldType);
+		
 
 		DesactivateWorld(old);
 

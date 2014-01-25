@@ -7,6 +7,7 @@ public class DecorsComportement : MonoBehaviour {
 	public Transform[] targetsMoveTo;
 	public float timeTarget;
 	public iTween.EaseType easeType = iTween.EaseType.linear;
+	public iTween.LoopType loopType = iTween.LoopType.pingPong;
 
 	public bool playTweenAtStart=true;
 
@@ -16,7 +17,7 @@ public class DecorsComportement : MonoBehaviour {
 	void Start () {
 		if(targetsMoveTo.Length>0){
 			iTween.MoveTo(gameObject, iTween.Hash("path", targetsMoveTo, "time", timeTarget, 
-			                          "looptype", iTween.LoopType.pingPong, "easetype", easeType));
+			                                      "looptype",loopType , "easetype", easeType));
 			if(!playTweenAtStart){
 				iTween.Pause(gameObject);
 				isPlayingTween=true;
