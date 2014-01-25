@@ -16,7 +16,11 @@ public class Character : MonoBehaviour {
 	Animator animator;
 	GroundDetection groundDetection;
 	// Use this for initialization
-	void Start () {
+	public void Start () {
+		InitBase(); 
+	}
+
+	public void InitBase(){
 		animator=GetComponent<Animator>();
 		groundDetection=GetComponentInChildren<GroundDetection>();
 	}

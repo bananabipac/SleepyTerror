@@ -23,7 +23,7 @@ public class GroundDetection : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter2D(Collider2D other){
-		Debug.Log("!!!");
+//		Debug.Log("!!!");
 		if(other.tag!="Trigger"){
 			collidedThings.Add(other);
 		}
