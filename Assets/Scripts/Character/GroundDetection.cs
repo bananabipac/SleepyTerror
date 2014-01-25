@@ -9,7 +9,7 @@ public class GroundDetection : MonoBehaviour {
 	public bool IsGrouded(){
 		List<Collider2D> collidersToRemove=new List<Collider2D>();
 		foreach(Collider2D c in collidedThings){
-			if(c==null)
+			if(c==null || !c.gameObject.activeSelf)
 				collidersToRemove.Add (c);
 		}
 		foreach(Collider2D c in collidersToRemove){

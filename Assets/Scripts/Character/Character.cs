@@ -13,7 +13,7 @@ public class Character : MonoBehaviour {
 	float yVelocity;
 	float horizontal;
 	
-	Animator animator;
+	public Animator animator;
 	GroundDetection groundDetection;
 	// Use this for initialization
 	public void Start () {
