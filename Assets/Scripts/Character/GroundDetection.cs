@@ -6,14 +6,23 @@ public class GroundDetection : MonoBehaviour {
 		public float radius=0.2f;
 //	public float width=0.3f, height=0.1f;
 
-	public LayerMask layerMask;
-	public bool grounded;
+	public LayerMask layerMask, layerMaskNope;
+	public bool grounded, nope;
+
 	public bool IsGrouded(){
 		transform.parent.parent=null;
 		grounded = Physics2D.OverlapCircle(transform.position, radius, layerMask);
 //		grounded = Physics2D.OverlapArea(new Vector2(transform.position.x-width,transform.position.y+height ),
 //		                                 new Vector2(transform.position.x+width,transform.position.y-height ), layerMask	);
 		return grounded;
+	}
+
+	public bool IsNope(){
+		transform.parent.parent=null;
+		nope = Physics2D.OverlapCircle(transform.position, radius, layerMaskNope);
+		//		grounded = Physics2D.OverlapArea(new Vector2(transform.position.x-width,transform.position.y+height ),
+		//		                                 new Vector2(transform.position.x+width,transform.position.y-height ), layerMask	);
+		return nope;
 	}
 
 	public void OnDrawGizmosSelected  () {
