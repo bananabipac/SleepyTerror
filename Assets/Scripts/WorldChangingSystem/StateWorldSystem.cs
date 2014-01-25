@@ -159,9 +159,11 @@ public class StateWorldSystem : MonoBehaviour {
 			switch (Type)
 			{
 				case ObjectType.Enemy:
+					go.SendMessage("Desactivation", SendMessageOptions.DontRequireReceiver);
 					go.SetActive(false);
 				break;
 				case ObjectType.Player:
+					go.SendMessage("Desactivation", SendMessageOptions.DontRequireReceiver);
 					go.SetActive(false);
 				break;
 				case ObjectType.Platform:
@@ -171,9 +173,11 @@ public class StateWorldSystem : MonoBehaviour {
 					
 				break;
 				case ObjectType.Background:
+					go.SendMessage("Desactivation", SendMessageOptions.DontRequireReceiver);
 					go.SetActive(false);
 				break;
 				case ObjectType.MovingPlatform:
+					go.SendMessage("Desactivation", SendMessageOptions.DontRequireReceiver);
 					go.SetActive(false);
 				break;
 			}
