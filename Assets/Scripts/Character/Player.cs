@@ -5,10 +5,10 @@ public class Player : Character {
 	public float pv;
 
 	// Update is called once per frame
-	void Update () {
+	public void Update () {
 		Move(Input.GetAxis("Horizontal"));
 		Jump(Input.GetButtonDown("Jump"));
 
-		UpdateMove();
+		base.Update();
 	}
 }

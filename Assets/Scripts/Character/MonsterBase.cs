@@ -9,40 +9,42 @@ public class MonsterBase : Character {
 	public Vector3 patrolBorderLeft, patrolBorderRight;
 
 	public bool patrolRight=true;
-
+	public bool patrolLeft=true;
 	public System.Action IA;
 
 	public void Start(){
 		base.Start();
 		posStart=transform.position;
-		Debug.Log("!!!!!!!");
 		IA=Patrol;
 	}
 
-	void Update(){
+	public void Update () {
 		IA();
-		UpdateMove();
+		base.Update();
 	}
 
-	void Patrol(){
+	public void Patrol(){
+		Move(0);
 		if(patrolRight){
 			Move(1);
 			if(transform.position.x>posStart.x+patrolBorderRight.x){
 				patrolRight=false;
+				patrolLeft=true;
 			}
-		}else{
+		}
+		if(patrolLeft){
 			Move(-1);
 			if(transform.position.x<posStart.x+patrolBorderLeft.x){
 				patrolRight=true;
+				patrolLeft=false;
 			}
 		}
 	}
 
-
 	#if UNITY_EDITOR
 
 
-	 void OnDrawGizmosSelected  () {
+	public void OnDrawGizmosSelected  () {
 		Gizmos.color = Color.green;
 		if(EditorApplication.isPlaying){
 			Gizmos.DrawWireCube(posStart+patrolBorderLeft, new Vector3(0.05f,100,0));
