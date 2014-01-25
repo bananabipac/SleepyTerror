@@ -21,7 +21,7 @@ public class Character : MonoBehaviour {
 	}
 
 	public void InitBase(){
-		animator=GetComponent<Animator>();
+		//animator=GetComponent<Animator>();
 		groundDetection=GetComponentInChildren<GroundDetection>();
 	}
 

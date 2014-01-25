@@ -26,9 +26,10 @@ public class StateWorldSystem : MonoBehaviour {
 		if (ListStates.ContainsKey(currentWorld))
 		{
 			if (Type == ObjectType.Player)
-			{
-				this.GetComponent<Player>().animator = ListStates[currentWorld].GetComponent<Animator>();
-			}
+			{			
+				this.GetComponent<Character>().animator = ListStates[currentWorld].GetComponent<Animator>();
+			}	
+			
 		}
 	
 	}
@@ -46,6 +47,7 @@ public class StateWorldSystem : MonoBehaviour {
 	public void ChangeState(WorldType worldType)
 	{
 		WorldType old = currentWorld;
+		Debug.Log(old);
 		currentWorld = worldType;
 		GameObject objOld = ListStates[old];
 
@@ -58,7 +60,7 @@ public class StateWorldSystem : MonoBehaviour {
 			switch (Type)
 			{
 				case ObjectType.Player :
-					this.GetComponent<Player>().animator = obj.GetComponent<Animator>();
+					this.GetComponent<Character>().animator = obj.GetComponent<Animator>();
 				break;
 			}
 
