@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Player : Character {
-	public float pv;
+	public float pv=1;
 	public float bumpForceWhenHit=25; 
 	// Update is called once per frame
 	public void Update () {
