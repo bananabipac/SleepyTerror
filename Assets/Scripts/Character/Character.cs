@@ -51,15 +51,15 @@ public class Character : MonoBehaviour {
 		Vector2 move = new Vector3(horizontal,yVelocity);
 		rigidbody2D.velocity=move+bumpForce;
 
-		if(wallTop){
-			animator.SetFloat("Horizontal", horizontal);
-			animator.transform.rotation=Quaternion.Euler(0,0,0);
-		}else if(wallLeft){
+		 if(wallLeft){
 			animator.SetFloat("Horizontal", -yVelocity);
 			animator.transform.rotation=Quaternion.Euler(0,0,270);
 		}else if(wallRight){
 			animator.SetFloat("Horizontal", yVelocity);
 			animator.transform.rotation=Quaternion.Euler(0,0,90);
+		}else if(wallTop){
+			animator.SetFloat("Horizontal", horizontal);
+			animator.transform.rotation=Quaternion.Euler(0,0,0);
 		}else{
 			animator.SetFloat("Horizontal", horizontal);
 			animator.SetFloat("Vertical", yVelocity);
