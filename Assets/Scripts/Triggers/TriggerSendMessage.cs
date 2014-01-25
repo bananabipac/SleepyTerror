@@ -2,9 +2,10 @@
 using System.Collections;
 
 public class TriggerSendMessage : MonoBehaviour {
-	LayerMask layermask;
-	void OnTriggerEnter2D(Collider2D other){
 
-		Debug.Log(other);
+	public string message;
+
+	void OnTriggerEnter2D(Collider2D other){
+		other.SendMessage(message, gameObject, SendMessageOptions.DontRequireReceiver);
 	}
 }
