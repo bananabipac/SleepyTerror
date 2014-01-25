@@ -10,8 +10,12 @@ public class Player : Character {
 	public void Update () {
 		Move(Input.GetAxis("Horizontal"));
 
-		if(worldType==WorldManager.Instance.GetCurrentWorld() && (wallDetectLeft.IsGrouded()||wallDetectRight.IsGrouded()))
+		if(worldType==WorldManager.Instance.GetCurrentWorld() && (wallDetectLeft.IsGrouded()||wallDetectRight.IsGrouded())){
 			MoveOnWall(Input.GetAxis("Vertical"),wallDetectLeft.IsGrouded(), wallDetectRight.IsGrouded());
+			animator.SetBool("OnWall", true);
+		}else{
+			animator.SetBool("OnWall", false);
+		}
 
 		Jump(Input.GetButtonDown("Jump"));
 
