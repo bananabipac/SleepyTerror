@@ -18,6 +18,8 @@ public class MonsterBase : Character {
 		IA=Patrol;
 	}
 
+	public Vector3 PositionStart { get{return posStart;} set{ posStart = value;}}
+
 	public void Update () {
 		IA();
 		base.Update();

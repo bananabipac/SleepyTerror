@@ -1,0 +1,418 @@
+fileFormatVersion: 2
+guid: 1a7704b84d3c96547ac9d8cf495da848
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: hero4_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 499
+        width: 27
+        height: 29
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_1
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 503
+        width: 29
+        height: 36
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_2
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 503
+        width: 29
+        height: 36
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_3
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 499
+        width: 26
+        height: 29
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_4
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 499
+        width: 26
+        height: 29
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_5
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 503
+        width: 21
+        height: 28
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_6
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 503
+        width: 20
+        height: 28
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_7
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 499
+        width: 27
+        height: 29
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_8
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 440
+        width: 27
+        height: 30
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_9
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 442
+        width: 34
+        height: 34
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_10
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 442
+        width: 34
+        height: 34
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_11
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 440
+        width: 27
+        height: 30
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_12
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 440
+        width: 27
+        height: 30
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_13
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 443
+        width: 24
+        height: 28
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_14
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 443
+        width: 24
+        height: 28
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_15
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 441
+        width: 27
+        height: 30
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_16
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 379
+        width: 26
+        height: 30
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_17
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 383
+        width: 25
+        height: 30
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_18
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 383
+        width: 25
+        height: 30
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_19
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 379
+        width: 26
+        height: 30
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_20
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 379
+        width: 27
+        height: 30
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_21
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 384
+        width: 21
+        height: 28
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_22
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 384
+        width: 21
+        height: 28
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_23
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 379
+        width: 27
+        height: 30
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_24
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 321
+        width: 24
+        height: 28
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_25
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 322
+        width: 36
+        height: 34
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_26
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 322
+        width: 37
+        height: 34
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_27
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 321
+        width: 23
+        height: 28
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_28
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 321
+        width: 23
+        height: 28
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_29
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 324
+        width: 26
+        height: 27
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_30
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 324
+        width: 25
+        height: 27
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_31
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 321
+        width: 23
+        height: 28
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 258
+        width: 35
+        height: 39
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_33
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 247
+        width: 29
+        height: 39
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_34
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 245
+        width: 36
+        height: 40
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_35
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 257
+        width: 29
+        height: 35
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_36
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 257
+        width: 35
+        height: 38
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_37
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 245
+        width: 30
+        height: 40
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_38
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 244
+        width: 36
+        height: 40
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_39
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 255
+        width: 28
+        height: 35
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: hero4_40
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 28
+        width: 26
+        height: 29
+      alignment: 7
+      pivot: {x: 0, y: 0}
+  spritePackingTag: 
+  userData: 

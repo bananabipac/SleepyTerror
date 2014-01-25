@@ -2,7 +2,7 @@
 using System.Collections;
 
 public enum WorldType { Test1, Test2, Test3 };
-public enum ObjectType { Player, FixedBackGround, BackGroundMoving, Enemy };
+public enum ObjectType { Player, Enemy};
 
 public class WorldManager : MonoBehaviour {
 

@@ -9,6 +9,7 @@ public class Character : MonoBehaviour {
 	public float fallSpeedMax=-10;
 	public float fallAcceleration=2;
 	public Vector2 bumpForce;
+	private bool isInCollider;
 	
 	float yVelocity;
 	float horizontal;
@@ -29,6 +30,16 @@ public class Character : MonoBehaviour {
 		UpdateMove();
 	}
 
+	public void OnTriggerStay2D(Collider2D other) 
+	{
+		isInCollider = true;
+	}
+
+	public void OnTriggerExit2D(Collider2D other)
+	{
+		isInCollider = false;
+	}
+	
 	public void UpdateMove () {
 		
 		Vector2 move = new Vector3(horizontal,yVelocity);
