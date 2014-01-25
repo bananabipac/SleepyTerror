@@ -62,8 +62,11 @@ public class StateWorldSystem : MonoBehaviour {
 					go.SetActive(true);
 					mb.animator = go.GetComponent<Animator>();
 
-					mb.patrolBorderLeft = mbNew.patrolBorderLeft;
-					mb.patrolBorderRight = mbNew.patrolBorderRight;
+					if (mbNew != null)
+					{
+						mb.patrolBorderLeft = mbNew.patrolBorderLeft;
+						mb.patrolBorderRight = mbNew.patrolBorderRight;
+					}
 
 					BoxCollider2D bc = this.GetComponent<BoxCollider2D>();
 					BoxCollider2D bcNew = this.GetComponent<BoxCollider2D>();
@@ -95,12 +98,15 @@ public class StateWorldSystem : MonoBehaviour {
 					Player pNew = go.GetComponent<Player>();
 					Player p = this.GetComponent<Player>();
 
-					p.moveSpeed = pNew.moveSpeed;
-					p.jumpSpeed = pNew.jumpSpeed;
-					p.fallSpeedMax = pNew.fallSpeedMax;
-					p.fallAcceleration = pNew.fallAcceleration;
-					p.bumpForce = pNew.bumpForce;
-					p.bumpForceWhenHit = pNew.bumpForceWhenHit;
+					if (pNew != null)
+					{
+						p.moveSpeed = pNew.moveSpeed;
+						p.jumpSpeed = pNew.jumpSpeed;
+						p.fallSpeedMax = pNew.fallSpeedMax;
+						p.fallAcceleration = pNew.fallAcceleration;
+						p.bumpForce = pNew.bumpForce;
+						p.bumpForceWhenHit = pNew.bumpForceWhenHit;
+					}
 
 				break;
 				case ObjectType.Platform :
