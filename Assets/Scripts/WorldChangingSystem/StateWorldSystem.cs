@@ -120,10 +120,13 @@ public class StateWorldSystem : MonoBehaviour {
 				break;
 				case ObjectType.MovingPlatform:
 					go.SetActive(true);
+				Debug.Log(currentWorld);
 					if(ListStates.ContainsKey(currentWorld))
 					{
+
 						foreach (Transform child in ListStates[currentWorld].transform)
 						{
+
 							child.parent = null;					
 						}
 					}					
