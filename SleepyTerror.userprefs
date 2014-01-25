@@ -1,12 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Grap\Grap.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Sounds\SoundManager.cs">
     <Files>
+      <File FileName="Assets\Scripts\Grap\Grap.cs" Line="53" Column="20" />
       <File FileName="Assets\Scripts\Character\GroundDetection.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Character\Character.cs" Line="91" Column="66" />
-      <File FileName="Assets\Scripts\WorldChangingSystem\WorldManager.cs" Line="21" Column="3" />
-      <File FileName="Assets\Scripts\WorldChangingSystem\StateWorldSystem.cs" Line="21" Column="1" />
-      <File FileName="Assets\Scripts\Grap\Grap.cs" Line="54" Column="3" />
+      <File FileName="Assets\Scripts\Character\Character.cs" Line="64" Column="1" />
+      <File FileName="Assets\Scripts\WorldChangingSystem\WorldManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\WorldChangingSystem\StateWorldSystem.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Character\Player.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Sounds\SoundManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
