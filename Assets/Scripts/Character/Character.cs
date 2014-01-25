@@ -2,14 +2,18 @@
 using System.Collections;
 
 public class Character : MonoBehaviour {
-	
-	
+
+
 	public float moveSpeed=10;
 	public float jumpSpeed=10;
 	public float fallSpeedMax=-10;
 	public float fallAcceleration=2;
 	public Vector2 bumpForce;
-	
+
+	public float pv=1;
+	public float bumpForceWhenHit=25;
+
+
 	float yVelocity;
 	float horizontal;
 	
@@ -51,6 +55,23 @@ public class Character : MonoBehaviour {
 	public void Jump(bool jump){
 		if(jump&&groundDetection.IsGrouded()){
 			yVelocity=jumpSpeed;
+		}
+	}
+
+	public void Bump(Vector2 jump){
+		bumpForce+=jump;
+	}
+
+	public void TakeDamage(GameObject hitter=null){
+		if(hitter.layer==gameObject.layer)
+			return;
+		pv--;
+		if(pv<=0){
+			Destroy(gameObject);
+
+		}else{
+			if(hitter)
+				bumpForce=(transform.position-hitter.transform.position).normalized*bumpForceWhenHit;
 		}
 	}
 }
