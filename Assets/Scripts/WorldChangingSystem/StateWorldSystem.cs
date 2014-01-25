@@ -110,6 +110,12 @@ public class StateWorldSystem : MonoBehaviour {
 
 				break;
 				case ObjectType.Platform :
+					go.GetComponent<SpriteRenderer>().enabled = true;
+					//go.GetComponent<BoxCollider2D>().tag = "BackGround";
+					go.GetComponent<BoxCollider2D>().enabled = true;
+					
+				break;
+				case ObjectType.Background :
 					go.SetActive(true);
 				break;
 			}
@@ -130,6 +136,12 @@ public class StateWorldSystem : MonoBehaviour {
 					go.SetActive(false);
 				break;
 				case ObjectType.Platform:
+					go.GetComponent<SpriteRenderer>().enabled = false;
+					//go.GetComponent<BoxCollider2D>().SpriteRenderer = "Water";
+					go.GetComponent<BoxCollider2D>().enabled = false;
+					
+				break;
+				case ObjectType.Background:
 					go.SetActive(false);
 				break;
 			}

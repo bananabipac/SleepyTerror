@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum WorldType { Test1, Test2, Test3 };
-public enum ObjectType { Player, Enemy, Platform};
+public enum WorldType { Cute, Time, Terror };
+public enum ObjectType { Player, Enemy, Platform, Background};
 
 public class WorldManager : MonoBehaviour {
 
@@ -17,7 +17,7 @@ public class WorldManager : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
-		WorldSelected = WorldType.Test1;
+		WorldSelected = WorldType.Cute;
 	}
 	
 	// Update is called once per frame

@@ -5,11 +5,11 @@ public class Player : Character {
 
 	 
 	// Update is called once per frame
-	public void FixedUpdate () {
+	public void Update () {
 		Move(Input.GetAxis("Horizontal"));
 		Jump(Input.GetButtonDown("Jump"));
 
-		base.FixedUpdate();
+		//base.FixedUpdate();
 	}
 	void OnDestroy(){
 		Application.LoadLevel(Application.loadedLevel);
