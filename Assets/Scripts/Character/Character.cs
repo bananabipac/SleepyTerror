@@ -44,7 +44,7 @@ public class Character : MonoBehaviour {
 
 
 	public void Move(float direction){
-		horizontal=Mathf.Clamp(direction,-1,1)*moveSpeed;
+		horizontal=direction*moveSpeed;
 	}
 
 	public void Jump(bool jump){

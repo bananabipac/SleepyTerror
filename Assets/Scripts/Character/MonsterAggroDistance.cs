@@ -9,6 +9,8 @@ public class MonsterAggroDistance : MonsterBase {
 
 	public float distanceAggro, distanceLoseAggro;
 
+	public float speedModifIfAggro=1;
+
 	public void Start(){
 		base.Start();
 
@@ -28,10 +30,10 @@ public class MonsterAggroDistance : MonsterBase {
 
 	void AttackPlayer(){
 		if(transform.position.x<player.transform.position.x){
-			Move(1);
+			Move(1*speedModifIfAggro);
 		}
 		if(transform.position.x>player.transform.position.x){
-			Move(-1);
+			Move(-1*speedModifIfAggro);
 		}
 		if(Vector3.Distance(player.transform.position, transform.position)>distanceLoseAggro){
 			IA=Patrol;

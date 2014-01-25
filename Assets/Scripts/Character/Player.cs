@@ -11,4 +11,11 @@ public class Player : Character {
 
 		base.Update();
 	}
+
+	public void TakeDamage(){
+		pv--;
+		if(pv<=0){
+			Application.LoadLevel(Application.loadedLevel);
+		}
+	}
 }
