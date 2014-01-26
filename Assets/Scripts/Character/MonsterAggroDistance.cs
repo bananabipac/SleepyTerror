@@ -18,13 +18,15 @@ public class MonsterAggroDistance : MonsterBase {
 	}
 
 	public void FixedUpdate () {
-		Aggro();
+		if(IA==Patrol)
+			Aggro();
 		base.FixedUpdate();
 	}
 
 	void Aggro(){
 		if(Vector3.Distance(player.transform.position, transform.position)<distanceAggro){
 			IA=AttackPlayer;
+			SoundManager.instance.PlaySound("Aggro");
 		}
 	}
 
