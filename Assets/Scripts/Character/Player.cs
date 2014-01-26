@@ -44,7 +44,7 @@ public class Player : Character {
 			go.SetActive(false);
 		}
 
-		rigidbody2D.velocity=Vector3.up*jumpSpeed*2;
+		rigidbody2D.velocity=Vector3.up*jumpSpeed;
 		Destroy(gameObject, 1);
 
 	}
