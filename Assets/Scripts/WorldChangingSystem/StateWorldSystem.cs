@@ -102,7 +102,7 @@ public class StateWorldSystem : MonoBehaviour {
 						this.GetComponent<Player>().animator = go.GetComponent<Animator>();
 
 
-						Player pNew = go.GetComponent<Player>();
+						Data pNew = go.GetComponent<Data>();
 						Player p = this.GetComponent<Player>();
 
 						if (pNew != null)
