@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum WorldType { Cute, Time, Terror };
+public enum WorldType { Cute, Time, Terror, Nope };
 public enum ObjectType { Player, Enemy, Platform, Background, MovingPlatform, StopingPlatform, BackgroundSound};
 public class WorldManager : MonoBehaviour {
 
