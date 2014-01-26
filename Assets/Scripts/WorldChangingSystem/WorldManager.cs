@@ -2,8 +2,7 @@
 using System.Collections;
 
 public enum WorldType { Cute, Time, Terror };
-public enum ObjectType { Player, Enemy, Platform, Background, MovingPlatform, BackgroundSound};
-
+public enum ObjectType { Player, Enemy, Platform, Background, MovingPlatform, StopingPlatform, BackgroundSound};
 public class WorldManager : MonoBehaviour {
 
 	private WorldType WorldSelected;
@@ -17,7 +16,8 @@ public class WorldManager : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
-		WorldSelected = WorldType.Cute;
+//		WorldSelected = WorldType.Cute;
+		WorldSelected = WorldType.Terror;
 	}
 	
 	// Update is called once per frame
