@@ -18,10 +18,10 @@ public class Player : Character {
 		 (wallDetectTop.IsGrouded()|| wallDetectLeft.IsGrouded()
 		 ||wallDetectRight.IsGrouded()||wallDetectTopR.IsGrouded()||wallDetectTopL.IsGrouded())){
 			MoveOnWall(Input.GetAxis("Vertical"),wallDetectLeft.IsGrouded(), wallDetectRight.IsGrouded(), 
-			           wallDetectTop.IsGrouded(), wallDetectTopR.IsGrouded(),wallDetectTopL.IsGrouded());
-			animator.SetBool("OnWall", true);
+			           wallDetectTop.IsGrouded(), wallDetectTopL.IsGrouded(),wallDetectTopR.IsGrouded());
+//			animator.SetBool("OnWall", true);
 		}else{
-			animator.SetBool("OnWall", false);
+//			animator.SetBool("OnWall", false);
 		}
 
 		Jump(Input.GetButtonDown("Jump"));
@@ -45,7 +45,7 @@ public class Player : Character {
 		}
 
 		rigidbody2D.velocity=Vector3.up*jumpSpeed*2;
-		Destroy(gameObject, 2);
+		Destroy(gameObject, 1);
 
 	}
 
