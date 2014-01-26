@@ -16,7 +16,7 @@ public class Character : MonoBehaviour {
 	public float bumpForceWhenHit=25;	float yVelocity;
 
 	float horizontal, vertical;
-	bool wallLeft,  wallRight;
+	bool wallLeft, wallRight, wallTop, wallTopL, wallTopR;
 
 	public Animator animator;
 
@@ -49,22 +49,32 @@ public class Character : MonoBehaviour {
 	public void UpdateMove () {
 		
 		Vector2 move = new Vector3(horizontal,yVelocity);
-		rigidbody2D.velocity=move+bumpForce;
 
-		if(wallLeft){
+		if(wallTop&&wallTopL&&wallTopR){
+			animator.SetFloat("Horizontal", horizontal);
+			animator.transform.rotation=Quaternion.Euler(0,0,0);
+			move = new Vector3(horizontal,yVelocity)/2;
+		}else if(wallLeft&&wallTopL){
 			animator.SetFloat("Horizontal", -yVelocity);
 			animator.transform.rotation=Quaternion.Euler(0,0,270);
-		}else if(wallRight){
+			move = new Vector3(horizontal,yVelocity)/2;
+		}else if(wallRight&&wallTopR){
 			animator.SetFloat("Horizontal", yVelocity);
 			animator.transform.rotation=Quaternion.Euler(0,0,90);
-		}else{
+			move = new Vector3(horizontal,yVelocity)/2;
+		}else {
 			animator.SetFloat("Horizontal", horizontal);
 			animator.SetFloat("Vertical", yVelocity);
 			animator.transform.rotation=Quaternion.Euler(0,0,0);
 		}
+
+		rigidbody2D.velocity=move+bumpForce;
+
 		wallLeft=false;
 		wallRight=false;
-
+		wallTop=false;
+		wallTopR=false;
+		wallTopL=false;
 		//		Debug.Log(horizontal+" "+yVelocity);
 		//		Debug.Log(rigidbody2D.velocity);
 		
@@ -77,14 +87,18 @@ public class Character : MonoBehaviour {
 		horizontal=direction*moveSpeed;
 	}
 
-	public void MoveOnWall(float direction, bool wallLeft, bool wallRight){
+	public void MoveOnWall(float direction, bool wallLeft, bool wallRight, bool wallTop, bool wallTopL, bool wallTopR){
 		yVelocity=direction*moveSpeed;
 		this.wallLeft=wallLeft;
 		this.wallRight=wallRight;
+		this.wallTop =wallTop;
+		this.wallTopL=wallTopL;
+		this.wallTopR=wallTopR;
+
 	}
 
 	public void Jump(bool jump){
-		if(jump&&groundDetection.IsGrouded()){
+		if(jump&&groundDetection.IsGrouded()&&!groundDetection.IsNope()){
 			yVelocity=jumpSpeed;
 		}
 	}

@@ -44,24 +44,38 @@ public class Grap : MonoBehaviour {
 		}else{
 			Debug.DrawLine(player.transform.position, transform.position);
 //			Debug.Log(player.rigidbody2D.velocity);
-			if(grapping && (Input.GetButtonDown("Jump"))){
-				canGrap=false;
-//				grapping=false;
-				player.rigidbody2D.gravityScale=0;
-				joint.connectedBody = null;
+			if(Input.GetButtonDown("Jump"))
+				Drop();
 
-				player.isGrapping=false;
-				player.bumpForce=Vector2.zero;
-				player.Bump(player.rigidbody2D.velocity.normalized*player.jumpSpeed*10);
-				player.enabled=true;
-				Camera cam=GetComponentInChildren<Camera>();
-				cam.transform.parent=player.transform;
-				cam.transform.position=new Vector3(player.transform.position.x,player.transform.position.y,cam.transform.position.z);
-				cam.orthographicSize=cam.orthographicSize/camSizeModif;
-//				Destroy(gameObject);
-				StartCoroutine(ResetGrapping());
-				player.GetComponentInChildren<FouetParticule>().StopGrab();
-			}
+		}
+	}
+
+	void Desactivation(){
+
+		Debug.Log("!!");
+		Drop();
+		grapping=false;
+	}
+	 
+	void Drop(){
+		Debug.Log("drop");
+		if(grapping){
+			canGrap=false;
+			//				grapping=false;
+			player.rigidbody2D.gravityScale=0;
+			joint.connectedBody = null;
+			
+			player.isGrapping=false;
+			player.bumpForce=Vector2.zero;
+			player.Bump(player.rigidbody2D.velocity.normalized*player.jumpSpeed*10);
+			player.enabled=true;
+			Camera cam=GetComponentInChildren<Camera>();
+			cam.transform.parent=player.transform;
+			cam.transform.position=new Vector3(player.transform.position.x,player.transform.position.y,cam.transform.position.z);
+			cam.orthographicSize=cam.orthographicSize/camSizeModif;
+			//				Destroy(gameObject);
+			StartCoroutine(ResetGrapping());
+			player.GetComponentInChildren<FouetParticule>().StopGrab();
 		}
 	}
 
