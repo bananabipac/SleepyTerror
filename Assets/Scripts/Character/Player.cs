@@ -4,7 +4,7 @@ using System.Collections;
 public class Player : Character {
 
 	public WallDetection wallDetectLeft, wallDetectRight, wallDetectTop, wallDetectTopL, wallDetectTopR;
-	public WorldType worldType;
+
 	public bool isGrapping;
 
 	public GameObject[] toDisableOnDeath;
@@ -45,11 +45,12 @@ public class Player : Character {
 		}
 
 		rigidbody2D.velocity=Vector3.up*jumpSpeed;
-		Destroy(gameObject, 1);
-
+//		Destroy(gameObject, 1);
+		StartCoroutine(GameOver(1));
 	}
 
-	void OnDestroy(){
+	IEnumerator GameOver(float sec){
+		yield return new WaitForSeconds(sec); 
 		Application.LoadLevel(Application.loadedLevel);
 	}
 }

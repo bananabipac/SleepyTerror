@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Character : MonoBehaviour {
 
-
+	public WorldType worldType;
 	public float moveSpeed=10;
 	public float jumpSpeed=10;
 //	public float fallSpeedMin=-10;
@@ -92,7 +92,7 @@ public class Character : MonoBehaviour {
 			animator.SetFloat("Horizontal", Mathf.Abs(horizontal));
 			animator.SetFloat("Vertical", yVelocity);
 			animator.transform.rotation=Quaternion.Euler(0,0,0);
-			if(WorldType.Cute==WorldManager.Instance.GetCurrentWorld())
+			if(worldType==WorldManager.Instance.GetCurrentWorld())
 				animator.transform.localPosition=new Vector3(0,0,0);
 
 			if(horizontal!=0)
