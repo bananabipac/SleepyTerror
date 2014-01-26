@@ -22,6 +22,8 @@ public class Character : MonoBehaviour {
 
 	GroundDetection groundDetection;
 
+	bool attack;
+
 	// Use this for initialization
 	public void Start () {
 		InitBase(); 
@@ -47,25 +49,55 @@ public class Character : MonoBehaviour {
 	}*/
 	
 	public void UpdateMove () {
-		
+		if(attack)
+			return;
 		Vector2 move = new Vector3(horizontal,yVelocity);
 
+//		Debug.Log( "wallLeft "+wallLeft+" wallRight "+wallRight+" wallTop "+wallTop+" wallTopL "+wallTopL+" wallTopR "+wallTopR);
 		if(wallTop&&wallTopL&&wallTopR){
+//			Debug.Log("top");
 			animator.SetFloat("Horizontal", horizontal);
-			animator.transform.rotation=Quaternion.Euler(0,0,0);
+			animator.SetFloat("Vertical", 0);
+			animator.transform.rotation=Quaternion.Euler(0,0,180);
+			animator.transform.localPosition=new Vector3(0,-0.1f,0);
+
 			move = new Vector3(horizontal,yVelocity)/2;
+			if(horizontal!=0)
+				animator.transform.localScale=new Vector3(-Mathf.Sign(horizontal)* Mathf.Abs(animator.transform.localScale.x),
+				                                          animator.transform.localScale.y,animator.transform.localScale.z);
 		}else if(wallLeft&&wallTopL){
+//			Debug.Log("Left");
 			animator.SetFloat("Horizontal", -yVelocity);
+			animator.SetFloat("Vertical", 0);
 			animator.transform.rotation=Quaternion.Euler(0,0,270);
+			animator.transform.localPosition=new Vector3(0.05f,0,0);
+
 			move = new Vector3(horizontal,yVelocity)/2;
+			if(yVelocity!=0)
+				animator.transform.localScale=new Vector3(-Mathf.Sign(yVelocity)* Mathf.Abs(animator.transform.localScale.x),
+			                                          animator.transform.localScale.y,animator.transform.localScale.z);
 		}else if(wallRight&&wallTopR){
+//			Debug.Log("right");
 			animator.SetFloat("Horizontal", yVelocity);
+			animator.SetFloat("Vertical", 0);
 			animator.transform.rotation=Quaternion.Euler(0,0,90);
+			animator.transform.localPosition=new Vector3(-0.05f,0,0);
+
 			move = new Vector3(horizontal,yVelocity)/2;
+			if(yVelocity!=0)
+				animator.transform.localScale=new Vector3(Mathf.Sign(yVelocity)* Mathf.Abs(animator.transform.localScale.x),
+				                                          animator.transform.localScale.y,animator.transform.localScale.z);
 		}else {
-			animator.SetFloat("Horizontal", horizontal);
+//			Debug.Log("bot");
+			animator.SetFloat("Horizontal", Mathf.Abs(horizontal));
 			animator.SetFloat("Vertical", yVelocity);
 			animator.transform.rotation=Quaternion.Euler(0,0,0);
+			if(WorldType.Cute==WorldManager.Instance.GetCurrentWorld())
+				animator.transform.localPosition=new Vector3(0,0,0);
+
+			if(horizontal!=0)
+				animator.transform.localScale=new Vector3(Mathf.Sign(horizontal)* Mathf.Abs(animator.transform.localScale.x),
+				                                          animator.transform.localScale.y,animator.transform.localScale.z);
 		}
 
 		rigidbody2D.velocity=move+bumpForce;
@@ -109,24 +141,39 @@ public class Character : MonoBehaviour {
 	}
 
 	public void TakeDamage(GameObject hitter=null){
+		if(pv<=0)
+			return;
 		if(hitter.layer==gameObject.layer)
 			return;
 		SoundManager.instance.PlaySound("Damage");
 		pv--;
+		if(hitter)
+			bumpForce=(transform.position-hitter.transform.position).normalized*bumpForceWhenHit;
 		if(pv<=0){
 			if(this is Player)
 				(this as Player).Die();
 			else
 				Die();
 
-		}else{
-			if(hitter)
-				bumpForce=(transform.position-hitter.transform.position).normalized*bumpForceWhenHit;
 		}
 	}
 
 	public void Die(){
 		Destroy(gameObject);
+	}
+
+	public void Attack(GameObject go){
+		animator.SetBool("Attack", true);
+		StartCoroutine(Attacked());
+		attack=true;
+		animator.transform.localScale=new Vector3(Mathf.Sign(go.transform.position.x-transform.position.x)* Mathf.Abs(animator.transform.localScale.x),
+		                                          animator.transform.localScale.y,animator.transform.localScale.z);
+
+	}
+
+	IEnumerator Attacked(){
+		yield return new WaitForEndOfFrame();
+		animator.SetBool("Attack", false);
 	}
 }
 
