@@ -100,6 +100,7 @@ public class Character : MonoBehaviour {
 	public void Jump(bool jump){
 		if(jump&&groundDetection.IsGrouded()&&!groundDetection.IsNope()){
 			yVelocity=jumpSpeed;
+			SoundManager.instance.PlaySound("Jump");
 		}
 	}
 
@@ -110,14 +111,22 @@ public class Character : MonoBehaviour {
 	public void TakeDamage(GameObject hitter=null){
 		if(hitter.layer==gameObject.layer)
 			return;
+		SoundManager.instance.PlaySound("Damage");
 		pv--;
 		if(pv<=0){
-			Destroy(gameObject);
+			if(this is Player)
+				(this as Player).Die();
+			else
+				Die();
 
 		}else{
 			if(hitter)
 				bumpForce=(transform.position-hitter.transform.position).normalized*bumpForceWhenHit;
 		}
+	}
+
+	public void Die(){
+		Destroy(gameObject);
 	}
 }
 

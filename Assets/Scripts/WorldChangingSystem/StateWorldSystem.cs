@@ -147,6 +147,11 @@ public class StateWorldSystem : MonoBehaviour {
 					
 				break;
 
+			case ObjectType.BackgroundSound:
+				go.audio.mute=false;				
+				
+				break;
+
 			}
 		
 	}
@@ -179,6 +184,10 @@ public class StateWorldSystem : MonoBehaviour {
 				case ObjectType.MovingPlatform:
 					go.SendMessage("Desactivation", SendMessageOptions.DontRequireReceiver);
 					go.SetActive(false);
+				break;
+				case ObjectType.BackgroundSound:
+				go.audio.mute=true;				
+				
 				break;
 			}
 		}
