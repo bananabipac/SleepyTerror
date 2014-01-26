@@ -1,0 +1,144 @@
+fileFormatVersion: 2
+guid: 05eeacc444e08aa4fae9fe391b5764bc
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: ST_CH_EN_Cute_cupcake_0
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 258
+        width: 136
+        height: 210
+      alignment: 9
+      pivot: {x: .540000021, y: 0}
+    - name: ST_CH_EN_Cute_cupcake_1
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 263
+        width: 133
+        height: 218
+      alignment: 9
+      pivot: {x: .467348248, y: 0}
+    - name: ST_CH_EN_Cute_cupcake_2
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 304
+        width: 149
+        height: 202
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: ST_CH_EN_Cute_cupcake_3
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 256
+        width: 154
+        height: 201
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: ST_CH_EN_Cute_cupcake_4
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 258
+        width: 137
+        height: 197
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: ST_CH_EN_Cute_cupcake_5
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 258
+        width: 137
+        height: 210
+      alignment: 9
+      pivot: {x: .563396394, y: 0}
+    - name: ST_CH_EN_Cute_cupcake_6
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 1
+        width: 137
+        height: 211
+      alignment: 9
+      pivot: {x: .529999971, y: 0}
+    - name: ST_CH_EN_Cute_cupcake_7
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 2
+        width: 155
+        height: 207
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: ST_CH_EN_Cute_cupcake_8
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 1
+        width: 141
+        height: 234
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: ST_CH_EN_Cute_cupcake_9
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 0
+        width: 198
+        height: 233
+      alignment: 9
+      pivot: {x: .400000006, y: 0}
+    - name: ST_CH_EN_Cute_cupcake_10
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 0
+        width: 257
+        height: 234
+      alignment: 9
+      pivot: {x: .449999988, y: 0}
+  spritePackingTag: 
+  userData: 
