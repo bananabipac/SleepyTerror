@@ -4,7 +4,7 @@ using System.Collections;
 public class CameraFollow : MonoBehaviour {
 
 	public float range;
-	public float initalHigh;
+	public float minHeight;
 	Transform transformPlayer;
 	// Use this for initialization
 	void Start () {
@@ -17,28 +17,25 @@ public class CameraFollow : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Vector3 vec = transformPlayer.position;
-		//Debug.Log(transformPlayer.position.y - transform.position.y);
-		if (transformPlayer.position.y - transform.position.y > range)
+		Vector3 vec = this.transform.position;
+		if (this.transform.position.y > transformPlayer.position.y - range && this.transform.position.y < transformPlayer.position.y + range)
 		{
-			Debug.Log("move up");
-			vec.y = transform.position.y + 20 * Time.deltaTime;
-		}
-		else if (transformPlayer.position.y - transform.position.y < 0)
-		{
-			Debug.Log("move down");
-			vec.y = transform.position.y - 20 * Time.deltaTime;
-			if (vec.y <= transformPlayer.position.y)
+			if (this.transform.position.y <= minHeight)
 			{
-				vec.y = transformPlayer.position.y;
+				vec.y = minHeight;
 			}
+			else
+			{
+				vec.y -= 20 * Time.deltaTime;
+			}
+
 		}
-		else
+		else if(this.transform.position.y < transformPlayer.position.y + range)
 		{
-			Debug.Log("Don't move");
-			vec.y = transform.position.y;
+			vec.y += 20 * Time.deltaTime;		
 		}
-		vec.z = transform.position.z;
-		transform.position = vec;
+
+		vec.x = transformPlayer.position.x;
+		this.transform.position = vec;
 	}
 }
